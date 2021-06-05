@@ -76,7 +76,7 @@
 
 # CADENAS (STRINGS)
 
-# descubrir si la string está contenida dentro de otra (letra por letra)
+# 1. descubrir si la string está contenida dentro de otra (letra por letra)
 
 # solucion 1 (te muestra hasta la repetición de letras)
 # def estaIncluida(cad1, cad2):
@@ -90,13 +90,20 @@
 #     for i in cad1:
 #         if cad2.count(i) > 0:
 #             palabra += i
-#     print(palabra == cad1)
+#     if palabra == cad1: print('Está contenida')
+#     else: print('No está contenida')
 
-# x = input('Ingrese un String: ')
-# y = input('Ingrese otra String: ')
+# x = input('Ingrese un String para saber si es contenida: ')
+# y = input('Ingrese la String contenedora: ')
 # estaIncluida(x, y)
 
-# invertir una string
+# 2. invertir una string
 
 x = input('Ingrese un String: ')
 print(x[::-1])
+
+# 3. es palíndrome
+
+# x = input('Ingrese un String: ')
+# if x == x[::-1]: print('Es palíndrome')
+# else: print('No es palíndrome')
