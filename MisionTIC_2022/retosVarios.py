@@ -39,7 +39,7 @@ def presupuesto(datos, identificacion):
             precioNoche = precios[persona['estrellas'] - 1]
             precioConDescuento = precioNoche - (precioNoche * 0.20)
             if ocupantes <= 4: presupuestox = (persona['adultos'] * precioNoche) + (persona['niños'] * precioConDescuento)
-            else: presupuestox = (persona['adultos'] * precioNoche) + (persona['niños'] * precioConDescuento) - (precioConDescuento + precioConDescuento)
+            else: presupuestox = (persona['adultos'] * precioNoche) + (persona['niños'] * precioConDescuento) - (precioNoche + precioConDescuento)
             ocupantesx = ocupantes
             habitaciones = 1
             while ocupantesx / 4 > 1: 
