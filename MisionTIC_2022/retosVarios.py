@@ -30,23 +30,29 @@ que necesita de acuerdo con los criterios establecidos anteriormente.
 Nota: para la solución del reto no está permitido el uso de funciones como filter o map.
 '''
 
-datos = [{'id': 8533644, 'nombre': 'Nelson', 'apellido': 'Charris', 'adultos': 2, 'niños': 2, 'bebes': 0, 'estrellas': 3}, 
-{'id': 32774589, 'nombre': 'Marina', 'apellido': 'Meléndez', 'adultos': 2, 'niños': 0, 'bebes': 0, 'estrellas': 3}, 
-{'id': 32569874, 'nombre': 'Liliana', 'apellido': 'Obredor', 'adultos': 2, 'niños': 1, 'bebes': 1, 'estrellas': 4}, 
-{'id': 8547963, 'nombre': 'Alejandro', 'apellido': 'Pérez', 'adultos': 3, 'niños': 3, 'bebes': 1, 'estrellas': 4}, 
-{'id': 32478159, 'nombre': 'Ana', 'apellido': 'Cantillo', 'adultos': 1, 'niños': 0, 'bebes': 0, 'estrellas': 2}]
+def presupuesto(datos, identificacion):
+    precios = [40000, 70000, 110000, 180000, 220000]
 
-precios = [40000, 70000, 110000, 180000, 220000]
-
-for persona in datos:
-    # print(persona)
-    ocupantes = persona['adultos'] + persona['niños'] + persona['bebes']
-    habitaciones = 1
-    precioNoche = precios[persona['estrellas'] - 1]
-    precioConDescuento = int(precioNoche - (precioNoche * 0.20))
-    presupuesto = (persona['adultos'] * precioNoche) + (persona['niños'] * precioConDescuento)
-    while ocupantes / 4 > 1: 
-        habitaciones += 1
-        ocupantes -= 4
+    for persona in datos:
+        if persona['id'] == identificacion: 
+            ocupantes = persona['adultos'] + persona['niños'] + persona['bebes']
+            precioNoche = precios[persona['estrellas'] - 1]
+            precioConDescuento = precioNoche - (precioNoche * 0.20)
+            if ocupantes <= 4: presupuestox = (persona['adultos'] * precioNoche) + (persona['niños'] * precioConDescuento)
+            else: presupuestox = (persona['adultos'] * precioNoche) + (persona['niños'] * precioConDescuento) - (precioConDescuento + precioConDescuento)
+            ocupantesx = ocupantes
+            habitaciones = 1
+            while ocupantesx / 4 > 1: 
+                habitaciones += 1
+                ocupantesx -= 4
+            return {'nombre': persona['nombre'], 'apellido': persona['apellido'], 'cantidad_personas': ocupantes, 'presupuesto': presupuestox, 'habitaciones': habitaciones}
     
-    print(f'El presupuesto total es de: ${str(presupuesto)} y necesitará {habitaciones} habitaciones.')
+datos = [{'id': 8533644, 'nombre': 'Nelson', 'apellido': 'Charris', 'adultos': 2, 'niños': 2, 'bebes': 0, 'estrellas': 3}, 
+    {'id': 32774589, 'nombre': 'Marina', 'apellido': 'Meléndez', 'adultos': 2, 'niños': 0, 'bebes': 0, 'estrellas': 3}, 
+    {'id': 32569874, 'nombre': 'Liliana', 'apellido': 'Obredor', 'adultos': 2, 'niños': 1, 'bebes': 1, 'estrellas': 4}, 
+    {'id': 8547963, 'nombre': 'Alejandro', 'apellido': 'Pérez', 'adultos': 3, 'niños': 3, 'bebes': 1, 'estrellas': 4}, 
+    {'id': 32478159, 'nombre': 'Ana', 'apellido': 'Cantillo', 'adultos': 1, 'niños': 0, 'bebes': 0, 'estrellas': 2}]
+
+id = 8547963
+
+print(presupuesto(datos, id))
