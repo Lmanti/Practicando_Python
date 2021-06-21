@@ -1,15 +1,17 @@
+################################################################################################
+
 #diccionarios
 
-dict1 = {}
+# dict1 = {}
 
-while len(dict1) < 3:
-    dict1.update({input('Ingrese capital: '): int(input('Ingrese numero de casas: '))})
+# while len(dict1) < 3:
+#     dict1.update({input('Ingrese capital: '): int(input('Ingrese numero de casas: '))})
 
 ## metodo corto, con lambda ##
 
 # dict1_sorted = sorted(dict1.items(), key = lambda x: x[1])
 
-list_dict1 = list(dict1.items())
+# list_dict1 = list(dict1.items())
 
 ## con for ##
 
@@ -21,13 +23,19 @@ list_dict1 = list(dict1.items())
 #             list_dict1[j + 1] = aux
 
 ## con while anidado ##
-for i in range(len(list_dict1) - 1):
-    j = 0
-    while j in range(len(list_dict1) - 1):
-        if list_dict1[j][1] > list_dict1[j + 1][1]:
-            aux = list_dict1[j]
-            list_dict1[j] = list_dict1[j + 1]
-            list_dict1[j + 1] = aux
-        j += 1
+# for i in range(len(list_dict1) - 1):
+#     j = 0
+#     while j in range(len(list_dict1) - 1):
+#         if list_dict1[j][1] > list_dict1[j + 1][1]:
+#             aux = list_dict1[j]
+#             list_dict1[j] = list_dict1[j + 1]
+#             list_dict1[j + 1] = aux
+#         j += 1
 
-print(list_dict1)
+# print(list_dict1)
+################################################################################################
+
+dic1 = {"a": 1, "b": 2, "c": 3}
+dic2 = {"a": 1, "c": 3, "b": 2}
+
+print(dic1 == dic2)
